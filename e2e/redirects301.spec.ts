@@ -6,8 +6,7 @@ import { parse } from "csv-parse/sync";
 //
 // List your CSV files here
 //
-// const csvFiles = ["redirects1.csv", "redirects2.csv"]; //For TESTING
-const csvFiles = ["MigrationRedirectsAU.csv", "MigrationRedirectsNZ.csv"]; // Linsey's Spreadsheet Data
+const csvFiles = ["redirects1.csv", "redirects2.csv"]; //For TESTING
 
 csvFiles.forEach((fileName) => {
   const csvFilePath = path.resolve("./test-data/", fileName);
