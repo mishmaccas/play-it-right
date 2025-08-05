@@ -10,7 +10,7 @@ const csvFiles = ["test.csv"];
 
 csvFiles.forEach((fileName) => {
   const csvFilePath = path.resolve("./test-data/", fileName);
-  const fileContent = fs.readFileSync(csvFilePath);
+  const fileContent = fs.readFileSync(csvFilePath, "utf8");
   const records: { From: string; To: string; Redirect: string }[] = parse(fileContent, {
     columns: true,
     skip_empty_lines: true,
