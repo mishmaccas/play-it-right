@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "website": "playwright test websitetest.spec.ts --headed --project=chromium",
-    "ui": "playwright test bunnings.spec.ts --headed --ui",
+    "alt": "playwright test alternativecheck.spec.ts --headed --project=chromium",
+    "ui": "playwright test website.spec.ts --headed --ui",
     "redirects": "playwright test redirects301.spec.ts --workers=1 --project=chromium",
     "report": "playwright show-report"
   },

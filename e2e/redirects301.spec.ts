@@ -6,7 +6,7 @@ import { parse } from "csv-parse/sync";
 //
 // List your CSV files here
 //
-const csvFiles = ["test.csv"];
+const csvFiles = ["HK3.csv"];
 
 csvFiles.forEach((fileName) => {
   const csvFilePath = path.resolve("./test-data/", fileName);
