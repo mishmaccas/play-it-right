@@ -6,14 +6,17 @@
     "alt": "playwright test alternativecheck.spec.ts --headed --project=chromium",
     "ui": "playwright test website.spec.ts --headed --ui",
     "redirects": "playwright test redirects301.spec.ts --workers=1 --project=chromium",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "aesop": "playwright test websitetest.spec.ts --headed --project=chromium",
+    "http": "playwright test httpAuth.spec.ts --headed --project=chromium",
+    "production": "playwright test responseProduction.spec.ts --workers=1 --headed --project=chromium"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.52.0",
+    "@playwright/test": "^1.58.0",
     "@types/node": "^22.15.19"
   },
   "dependencies": {
