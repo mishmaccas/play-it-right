@@ -25,13 +25,13 @@ BASE_URL=https://example.com
 
 ## Data
 
-Create a folder /test-data/
-Add two CSV files "redirects1.csv" and "redirects2.csv"
-Add the From and To Urls into each CSV file.
+Go to folder /test-data/
+Update test.csv file with your From and To Urls  
+Example
 
 ```
-IsLive,FromStatus,From,To
-FALSE,301 Permanent,https://from/,https://to/
+From,To,Null
+https://from.this.website/page/,https://going.to.this.website/page/,
 ```
 
 ## Reporting
