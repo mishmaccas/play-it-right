@@ -17,6 +17,7 @@ csvFiles.forEach((fileName) => {
   const records: { Url: string }[] = parse(fileContent, {
     columns: true,
     skip_empty_lines: true,
+    relax_column_count: true,
   });
 
   records.forEach(({ Url }, index) => {
@@ -30,7 +31,7 @@ csvFiles.forEach((fileName) => {
       const page = await context.newPage();
       let response = await page.goto(Url);
       const generationTime = await page.evaluate(
-        () => new Date(window.__NEXT_DATA__.props.pageProps.__GENERATION_TIME__),
+        () => new Date((window as any).__NEXT_DATA__.props.pageProps.__GENERATION_TIME__),
       );
       if (response?.status() === 500) console.log(Url + generationTime);
       expect(response?.status()).toBe(200);
@@ -38,7 +39,7 @@ csvFiles.forEach((fileName) => {
 
       response = await page.goto(Url);
       const generationTime2 = await page.evaluate(
-        () => new Date(window.__NEXT_DATA__.props.pageProps.__GENERATION_TIME__),
+        () => new Date((window as any).__NEXT_DATA__.props.pageProps.__GENERATION_TIME__),
       );
       if (response?.status() === 500) console.log(Url + generationTime2);
       expect(response?.status()).toBe(200);

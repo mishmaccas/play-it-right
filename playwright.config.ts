@@ -30,6 +30,7 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
     navigationTimeout: 30_000,
+    headless: false,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
@@ -43,27 +44,28 @@ export default defineConfig({
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"], headless: false },
+      use: { ...devices["Desktop Chrome"], headless: true },
     },
 
-    {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] },
-    },
-
-    {
-      name: "webkit",
-      use: { ...devices["Desktop Safari"] },
-    },
-
-    /* Test against mobile viewports. */
     // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
+    //   name: "firefox",
+    //   use: { ...devices["Desktop Firefox"], headless: false },
     // },
     // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
+    //   name: "webkit",
+    //   use: { ...devices["Desktop Safari"], headless: false },
+    // },
+    // {
+    //   name: "iPhone 16",
+    //   use: { ...devices["iPhone 16"], headless: false },
+    // },
+    // {
+    //   name: "Mobile Chrome",
+    //   use: { ...devices["Pixel 5"], headless: false },
+    // },
+    // {
+    //   name: "Mobile Safari",
+    //   use: { ...devices["iPhone 12"] },
     // },
 
     /* Test against branded browsers. */

@@ -2,7 +2,6 @@
 # Playwright
 node_modules/
 /test-results/
-/test-data/
 /test-examples/
 /playwright-report/
 /blob-report/

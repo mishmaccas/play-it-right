@@ -47,41 +47,15 @@ FALSE,301 Permanent,https://from/,https://to/
 
 ## E2E Tests
 
-### alternativecheck.spec.ts
-
-Tests and lists all alternative text (`alt` attributes) from images and elements with `role="img"`. Skips elements with `aria-hidden="true"`.
-
-### httpAuth.spec.ts
-
-Tests HTTP authentication at the context level. Validates that auth credentials are properly applied and accepts cookies on the authenticated page.
-
-### loraNG.spec.ts
-
-Currently empty.
-
 ### redirects301.spec.ts
 
-Tests 301 redirects using Playwright's request API. Checks the `Location` header without loading the final ("To") page. Uses CSV file with "From" and "To" URLs.
+Uses CSV file with "From" and "To" URLs.
+Navigate to the source URL and let the browser follow redirects.
+Compare final landed URL against expected destination from CSV.
 
 ### redirects301V2.spec.ts
 
 Similar to `redirects301.spec.ts`. Alternative implementation for testing redirects with CSV data.
-
-### responseProduction.spec.ts
-
-Tests page response status for URLs from CSV. Logs the Next.js `__GENERATION_TIME__` when response status is 500, helping identify server-side issues.
-
-### websitetest.spec.ts
-
-Tests website features:
-
-- Language selector functionality
-- Validates store href links and their HTTP response codes
-- Checks store details page accessibility
-
-### testSetUp.ts
-
-Helper file containing setup functions like `navigateToShop()` used across multiple tests.
 
 ## Execution
 
@@ -94,8 +68,17 @@ Helper file containing setup functions like `navigateToShop()` used across multi
 
 `npx playwright test redirects301V2.spec.ts --workers=1 --project=chromium`
 
-`npx playwright test responseProduction.spec.ts --workers=1 --project=chromium`
+## Updating Dependencies
 
-`npx playwright test websitetest.spec.ts --workers=1 --project=chromium`
+`npx npm-check-updates -u`
+This will update dependencies for example:
 
-`npx playwright test alternativecheck.spec.ts --workers=1 --project=chromium`
+@playwright/test ^1.58.0 → ^1.59.1
+@types/node ^22.15.19 → ^25.6.0
+csv-parse ^5.6.0 → ^6.2.1
+dotenv ^16.5.0 → ^17.4.2
+
+Then run the following commands to install new versions.
+A common issue after updating Playwright versions is that the browsers aren't automatically downloaded with the npm package.
+`npm install`
+`npx playwright install`
